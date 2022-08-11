@@ -13,7 +13,7 @@
     "node": ">=14"
   },
   "scripts": {
-    "test": "xo && ava",
+    "test": "ava",
     "postinstall": "alfy-init",
     "preuninstall": "alfy-cleanup"
   },
@@ -35,6 +35,6 @@
   "devDependencies": {
     "alfy-test": "^0.3.0",
     "ava": "^0.18.0",
-    "xo": "^0.17.0"
+    "eslint": "^8.21.0"
   }
 }
