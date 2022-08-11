@@ -1,0 +1,40 @@
+{
+  "name": "alfred-chrono",
+  "version": "0.0.1",
+  "description": "Alfred Workflow to parse human dates into multiple formats including Roam Research, JSON, Unix Timestamp",
+  "license": "MIT",
+  "repository": "Grynn/alfred-chrono",
+  "author": {
+    "name": "Vishal Doshi",
+    "email": "vishal.doshi@gmail.com",
+    "url": "https://github.com/grynn"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "test": "xo && ava",
+    "postinstall": "alfy-init",
+    "preuninstall": "alfy-cleanup"
+  },
+  "files": [
+    "index.js",
+    "icon.png",
+    "info.plist"
+  ],
+  "keywords": [
+    "alfred",
+    "workflow",
+    "alfy"
+  ],
+  "dependencies": {
+    "alfy": "^0.6.0",
+    "chrono-node": "^2.3.9",
+    "moment": "^2.29.4"
+  },
+  "devDependencies": {
+    "alfy-test": "^0.3.0",
+    "ava": "^0.18.0",
+    "xo": "^0.17.0"
+  }
+}
