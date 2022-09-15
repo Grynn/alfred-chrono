@@ -17,6 +17,7 @@
     "postinstall": "alfy-init",
     "preuninstall": "alfy-cleanup"
   },
+  "type": "module",
   "files": [
     "index.js",
     "icon.png",
@@ -28,13 +29,13 @@
     "alfy"
   ],
   "dependencies": {
-    "alfy": "^0.6.0",
-    "chrono-node": "^2.3.9",
-    "moment": "^2.29.4"
+    "alfy": "^1.0",
+    "chrono-node": "^2.4",
+    "moment": "^2.29"
   },
   "devDependencies": {
-    "alfy-test": "^0.3.0",
-    "ava": "^0.18.0",
-    "eslint": "^8.21.0"
+    "alfy-test": "^0.4.0",
+    "ava": "^4",
+    "eslint": "^8"
   }
 }

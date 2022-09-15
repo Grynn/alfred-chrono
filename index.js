@@ -1,22 +1,28 @@
-const alfy = require("alfy");
-const chrono = require("chrono-node");
-const moment = require("moment");
+import alfy from "alfy";
+import Chrono from "chrono-node";
+import moment from "moment";
 
-/** @type {Date} */
-const dt = chrono.parseDate(alfy.input);
-const m = moment(dt);
+//Check for whitespace input (replace with today)
+let input = alfy.input;
+if (isWhitespace(input)) {
+  input = "today";
+}
+
+const m = parseDate(input);
+
+/** @type {import("alfy").ScriptFilterItem[]} */
 const ret = [];
 
 if (!m.isValid()) {
-  ret.push({
-    title: "Invalid date",
-    subtitle: `Could not parse ${alfy.input}`,
-  });
+  alfy.error(`Invalid date: could not parse '${alfy.input}'`);
 } else {
   ret.push({
     title: `[[${m.format("MMMM Do, YYYY")}]]`,
-    subtitle: "alfred",
+    subtitle: "roam-research",
     arg: `[[${m.format("MMMM Do, YYYY")}]]`,
+    icon: {
+      path: "./icons/roam-research.png",
+    },
   });
 
   ret.push({
@@ -36,6 +42,33 @@ if (!m.isValid()) {
     subtitle: "Simple",
     arg: m.format("YYYY-MM-DD"),
   });
+  alfy.output(ret);
 }
 
-alfy.output(ret);
+/**
+ * Check if input is an empty string (with just whitespace)
+ * @param {string?} input
+ */
+function isWhitespace(input) {
+  return !(input && input.length > 0 && input.trim().length > 0);
+}
+
+/**
+ * Parse a date string using Chrono
+ * @param {string} input
+ * @returns {import("moment").Moment}}
+ */
+function parseDate(input) {
+  //if input is null / empty string
+  let dt = Chrono.parseDate(input);
+  let m = moment(dt);
+
+  //If it does not work, try "3 days => in 3 days"
+  if (!m.isValid()) {
+    input = `in ${input}`;
+    dt = Chrono.parseDate(input);
+    m = moment(dt);
+  }
+
+  return m;
+}
