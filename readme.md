@@ -1,4 +1,4 @@
-# alfred-chrono [![Build Status](https://travis-ci.org/Grynn/alfred-chrono.svg?branch=master)](https://travis-ci.org/Grynn/alfred-chrono)
+# alfred-chrono [![Node.js CI](https://github.com/Grynn/alfred-chrono/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/Grynn/alfred-chrono/actions/workflows/node.js.yml)
 
 > Alfred Workflow to parse human dates into multiple formats including Roam Research, JSON, Unix Timestamp
 
