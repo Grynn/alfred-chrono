@@ -23,5 +23,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
+      - run: npm pkg set scripts.postinstall="echo no-postinstall"
       - run: npm install
       - run: npm test
